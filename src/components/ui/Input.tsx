@@ -8,31 +8,28 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, helperText, className = "", ...props }, ref) => {
+    const baseFieldStyles =
+      "w-full rounded-2xl border border-slate-300/70 bg-white/70 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 disabled:bg-slate-100 disabled:text-slate-500 disabled:cursor-not-allowed";
+
     return (
-      <div className="w-full">
+      <div className="w-full space-y-2">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+          <label className="block text-sm font-semibold text-slate-600">
             {label}
           </label>
         )}
         <input
           ref={ref}
-          className={`
-            w-full px-4 py-2.5
-            border rounded
-            text-gray-900 placeholder:text-gray-400
-            transition-colors
-            focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border.blue-500 disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed ${
-              error
-                ? "border-red-400 focus:border-red-500 focus:ring-red-500/20"
-                : "border-gray-300"
-            }
-                ${className}`}
+          className={`${
+            error
+              ? "border-rose-400 focus:border-rose-500 focus:ring-rose-400/30"
+              : ""
+          } ${baseFieldStyles} ${className}`}
           {...props}
         />
-        {error && <p className="mt-1.5 text-sm text-red-600">{error}</p>}
+        {error && <p className="text-sm text-rose-500">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1.5 text-sm text-gray-500">{helperText}</p>
+          <p className="text-sm text-slate-400">{helperText}</p>
         )}
       </div>
     );

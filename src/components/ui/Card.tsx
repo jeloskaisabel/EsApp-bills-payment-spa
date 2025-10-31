@@ -10,10 +10,12 @@ export function Card({ children, className = "", hover = false }: CardProps) {
   return (
     <div
       className={`
-        bg-white rounded-lg border border-gray-200
+        relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white/85
+        backdrop-blur-lg shadow-[0_28px_60px_rgba(15,23,42,0.12)]
+        transition-transform duration-200 ease-out
         ${
           hover
-            ? "hover:border-gray-300 hover:shadow-md transition-all duration-200"
+            ? "hover:-translate-y-1 hover:shadow-[0_40px_80px_rgba(15,23,42,0.18)]"
             : ""
         } ${className}`}
     >
@@ -29,5 +31,5 @@ export function CardContent({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`p-5 ${className}`}>{children}</div>;
+  return <div className={`p-6 sm:p-8 ${className}`}>{children}</div>;
 }
