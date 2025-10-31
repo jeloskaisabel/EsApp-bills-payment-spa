@@ -434,19 +434,6 @@ npm run lint         # Ejecuta ESLint para análisis de código
 
 **Opción elegida**: React Hooks (useState)
 
-**Justificación**:
-
-- La aplicación es de tamaño pequeño-mediano
-- El estado es principalmente local a la página
-- No se requiere compartir estado entre múltiples componentes distantes
-- Simplicidad y claridad en el código
-
-**Alternativas consideradas**:
-
-- Context API: Sobrecarga para este tamaño de aplicación
-- Redux: Excesivo para el alcance del proyecto
-- Zustand/Jotai: No necesario dado el flujo de datos simple
-
 ### Manejo de API
 
 **Custom Hook** (`useCustomerBills`):
@@ -462,51 +449,17 @@ npm run lint         # Ejecuta ESLint para análisis de código
 }
 ```
 
-**Beneficios**:
-
-- Encapsulación de lógica de negocio
-- Reutilización fácil
-- Testing simplificado
-- Separación de responsabilidades
-
 ### Estilos
 
 **Opción elegida**: Tailwind CSS v4
-
-**Justificación**:
-
-- Desarrollo rápido con utility classes
-- Diseño responsivo consistente
-- Bundle size optimizado en producción
-- Tema personalizado con fuente Poppins
-
-**Configuración**:
-
-- Variables globales mínimas en `globals.css`
-- Sistema de colores consistente
-- Fuente Poppins importada desde Google Fonts
 
 ### TypeScript
 
 **Nivel de tipado**: Estricto
 
-**Beneficios observados**:
-
-- Detección temprana de errores
-- Autocompletado mejorado en IDE
-- Refactoring seguro
-- Documentación implícita del código
-
 ### Componentes UI
 
 **Patrón**: Design System propio
-
-**Ventajas**:
-
-- Control total sobre el diseño
-- Sin dependencias de librerías pesadas
-- Personalización completa
-- Aprendizaje de fundamentos
 
 ## Testing y Calidad
 
@@ -517,8 +470,6 @@ npm run lint
 ```
 
 - Configuración ESLint para React y TypeScript
-- Cero errores en el código actual
-- Cero warnings
 
 ### Build
 
@@ -571,7 +522,3 @@ Configurado con:
 - Custom color palette
 - Typography plugin
 - Responsive breakpoints personalizados
-
-### JSON Server Routes
-
-Archivo `routes.json` define rutas personalizadas para simular endpoints complejos.
