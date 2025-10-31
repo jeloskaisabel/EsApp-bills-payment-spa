@@ -483,26 +483,6 @@ npm run build
   - JS: 224.79 KB (gzip: 69.16 KB)
 - Code splitting automático por Vite
 
-## Mejoras Futuras
-
-### Funcionalidades
-
-- Autenticación de usuarios
-- Historial completo de pagos
-- Descarga de comprobantes en PDF
-- Notificaciones push para vencimientos
-- Pago por lotes (múltiples facturas)
-- Dashboard con gráficos y estadísticas
-
-### Técnicas
-
-- Testing: Jest + React Testing Library
-- E2E: Cypress o Playwright
-- State Management: Zustand si crece la complejidad
-- API real: Migración a backend real
-- PWA: Soporte offline
-- Internacionalización: i18n para múltiples idiomas
-
 ## Documentación Adicional
 
 ### Vite Configuration
