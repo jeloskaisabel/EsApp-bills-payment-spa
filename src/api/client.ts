@@ -7,7 +7,11 @@ import type {
 
 const API_BASE_URL = "/api";
 
+/**
+ * Cliente HTTP para comunicación con la API de facturas
+ */
 class ApiClient {
+  /** Ejecuta solicitudes HTTP con manejo de errores */
   private async request<T>(
     endpoint: string,
     options?: RequestInit
@@ -30,24 +34,29 @@ class ApiClient {
     return response.json();
   }
 
+  /** Obtiene información completa de un cliente */
   async getCustomer(customerId: string): Promise<Customer> {
     return this.request<Customer>(`/customers/${customerId}`);
   }
 
+  /** Obtiene resumen del cliente con facturas y estadísticas */
   async getCustomerSummary(customerId: string): Promise<CustomerSummary> {
     return this.request<CustomerSummary>(`/customers/${customerId}/summary`);
   }
 
+  /** Obtiene todas las facturas de un cliente */
   async getCustomerBills(customerId: string): Promise<Bill[]> {
     return this.request<Bill[]>(`/bills?customerId=${customerId}`);
   }
 
+  /** Obtiene solo las facturas pendientes de un cliente */
   async getPendingBills(customerId: string): Promise<PendingBillsResponse> {
     return this.request<PendingBillsResponse>(
       `/customers/${customerId}/bills/pending`
     );
   }
 
+  /** Registra el pago de una factura */
   async payBill(
     billId: string,
     paymentData: {
@@ -64,6 +73,7 @@ class ApiClient {
     });
   }
 
+  /** Verifica el estado del servicio */
   async healthCheck(): Promise<{
     status: string;
     service: string;
