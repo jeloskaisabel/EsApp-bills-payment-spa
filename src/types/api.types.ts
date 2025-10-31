@@ -1,3 +1,4 @@
+/** Información completa del cliente */
 export interface Customer {
   id: string;
   fullName: string;
@@ -11,6 +12,7 @@ export interface Customer {
   registeredAt: string;
 }
 
+/** Factura de servicio público */
 export interface Bill {
   id: string;
   customerId: string;
@@ -35,6 +37,7 @@ export interface Bill {
   daysOverdue?: number;
 }
 
+/** Registro de transacción de pago */
 export interface Payment {
   id: string;
   billId: string;
@@ -50,6 +53,7 @@ export interface Payment {
   receiptNumber: string;
 }
 
+/** Resumen de cliente con sus facturas y estadísticas */
 export interface CustomerSummary {
   customer: Pick<Customer, "id" | "fullName" | "email">;
   summary: {
@@ -63,6 +67,7 @@ export interface CustomerSummary {
   bills: Bill[];
 }
 
+/** Respuesta de facturas pendientes del cliente */
 export interface PendingBillsResponse {
   customerId: string;
   totalPending: number;
@@ -70,6 +75,7 @@ export interface PendingBillsResponse {
   bills: Bill[];
 }
 
+/** Error de respuesta de la API */
 export interface ApiError {
   error: string;
   message: string;
